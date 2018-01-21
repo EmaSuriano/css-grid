@@ -13,35 +13,20 @@ const ImageWrapper = styled.div`
   grid-row: span ${props => props.spanRow};
   cursor: pointer;
   position: relative;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1;
 `;
 
-// const Overlay = styled.div`
-//   position: absolute;
-//   top: 10px;
-//   left: 10px;
-
-//   padding: 5px;
-//   background-color: white;
-//   border: 2px solid red;
-
-//   &:hover {
-//     background: red;
-//     border: 10px solid black;
-//   }
-// `;
-
 const Overlay = styled.div`
-  position: absolute;
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
-  top: 0;
-  left: 0;
   color: white;
-  width: 100%;
-  height: 100%;
   display: grid;
   align-content: center;
   justify-content: center;
+  grid-column: 1;
+  grid-row: 1;
   transition: 0.5s ease;
 
   &:hover {
