@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import randomImage from './images';
-import { PortalWithState } from 'react-portal';
 import getRandomNumber from './getRandomNumber';
 import Modal from 'react-responsive-modal';
 import 'react-responsive-modal/lib/react-responsive-modal.css';
@@ -28,6 +26,7 @@ const Overlay = styled.div`
   grid-column: 1;
   grid-row: 1;
   transition: 0.5s ease;
+  text-align: center;
 
   &:hover {
     opacity: 1;
@@ -55,7 +54,7 @@ class ImageViewer extends Component {
         spanColumn={this.props.spanColumn}
         spanRow={this.props.spanRow}
       >
-        <img src={this.props.image} />
+        <img src={this.props.image} alt="galleryImg" />
         <Overlay>Click to view image!</Overlay>
       </ImageWrapper>,
       <Modal
@@ -64,31 +63,9 @@ class ImageViewer extends Component {
         little
         showCloseIcon={false}
       >
-        <img src={this.props.image} />
+        <img src={this.props.image} alt="fullSreenImage" />
       </Modal>,
     ];
-    // return (
-    //   <PortalWithState closeOnOutsideClick closeOnEsc>
-    //     {({ openPortal, closePortal, portal }) => [
-    // <div
-    //   onClick={openPortal}
-    //   style={{
-    //     gridColumn: `span ${this.props.spanColumn}`,
-    //     gridRow: `span ${this.props.spanRow}`,
-    //   }}
-    // >
-    //   <img src={this.props.image} />
-    // </div>,
-    //       portal(
-    //         <p>
-    //           This is more advanced Portal. It handles its own state.{' '}
-    //           <button onClick={closePortal}>Close me!</button>, hit ESC or click
-    //           outside of me.
-    //         </p>,
-    //       ),
-    //     ]}
-    //   </PortalWithState>
-    // );
   }
 }
 
